@@ -11,7 +11,7 @@
 @import CoreImage;
 @import AssetsLibrary;
 
-static NSString *kImageFileURLPath = @"TestGradientStripedProfile2";
+static NSString *kImageFileURLPath = @"TestGradient";
 static NSString *kImageFileURLExtension = @"png";
 
 @interface ViewController ()
