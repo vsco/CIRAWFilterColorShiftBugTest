@@ -20,13 +20,15 @@ static NSString *kImageFileURLExtension = @"CR2";
 @property (strong, nonatomic) UIImage *outputUIImage;
 @property (weak, nonatomic) IBOutlet UISwitch *colorspaceSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UISwitch *rawSwitch;
+@property CGColorSpaceRef workingSpace;
 
 @end
 
 @implementation ViewController
 
 
-- (void)LoadImageUsingWorkingColorSpace: (CGColorSpaceRef) workingColorSpace
+- (void)LoadImage
 {
     
     NSBundle *bundle = [NSBundle mainBundle];
@@ -41,7 +43,7 @@ static NSString *kImageFileURLExtension = @"CR2";
     
     CIContext *context = [CIContext contextWithOptions:@{kCIContextWorkingFormat:@(kCIFormatRGBAh),
                                                          kCIContextUseSoftwareRenderer:@YES,
-                                                         kCIContextWorkingColorSpace: (__bridge id)workingColorSpace,
+                                                         kCIContextWorkingColorSpace: (__bridge id)self.workingSpace,
                                                          kCIContextOutputColorSpace: (__bridge id)CGColorSpaceCreateWithName(kCGColorSpaceDisplayP3)
                                                          }];
     
@@ -54,16 +56,19 @@ static NSString *kImageFileURLExtension = @"CR2";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self LoadImageUsingWorkingColorSpace: CGColorSpaceCreateWithName(kCGColorSpaceGenericRGBLinear)];
+    self.workingSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGBLinear);
+    [self LoadImage];
+    [[self colorspaceSwitch] setEnabled:YES];
 
 }
 
 - (IBAction)colorspaceSwitchToggle:(UISwitch *)sender {
     if ([sender isOn]){
-        [self LoadImageUsingWorkingColorSpace: CGColorSpaceCreateWithName(kCGColorSpaceDisplayP3)];
+        self.workingSpace = CGColorSpaceCreateWithName(kCGColorSpaceDisplayP3);
     }else{
-        [self LoadImageUsingWorkingColorSpace: CGColorSpaceCreateWithName(kCGColorSpaceGenericRGBLinear)];
+        self.workingSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGBLinear);
     }
+    [self LoadImage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,17 +89,15 @@ static NSString *kImageFileURLExtension = @"CR2";
     
 }
 
-- (IBAction)inputOutputButtonAction:(id)sender {
-    static BOOL showInput = NO;
-    
-    showInput = !showInput;
-    
-    if (showInput) {
+- (IBAction)rawSwitchToggle:(UISwitch *)sender {
+    if ([sender isOn]){
+        [[self colorspaceSwitch] setEnabled:YES];
+        [self.imageView setImage:self.outputUIImage];
+    }else{
+        [[self colorspaceSwitch] setEnabled:NO];
         self.inputUIImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.%@", kImageFileURLPath, kImageFileURLExtension]];
         [self.imageView setImage:self.inputUIImage];
-    } else {
-        [self.imageView setImage:self.outputUIImage];
     }
- }
+}
 
 @end
