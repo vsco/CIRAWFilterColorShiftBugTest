@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CAD388B1D95FE8D0002D3A9 /* IMG_1453.CR2 in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD388A1D95FE8D0002D3A9 /* IMG_1453.CR2 */; };
 		CA8F7DA41D945D1400C82F4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8F7DA31D945D1400C82F4B /* main.m */; };
 		CA8F7DA71D945D1400C82F4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8F7DA61D945D1400C82F4B /* AppDelegate.m */; };
 		CA8F7DAA1D945D1400C82F4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8F7DA91D945D1400C82F4B /* ViewController.m */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CAD388A1D95FE8D0002D3A9 /* IMG_1453.CR2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_1453.CR2; sourceTree = "<group>"; };
 		CA8F7D9F1D945D1400C82F4B /* CIRAWFilterColorShiftBugTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIRAWFilterColorShiftBugTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8F7DA31D945D1400C82F4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA8F7DA51D945D1400C82F4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		CA8F7DA11D945D1400C82F4B /* CIRAWFilterColorShiftBugTest */ = {
 			isa = PBXGroup;
 			children = (
+				1CAD388A1D95FE8D0002D3A9 /* IMG_1453.CR2 */,
 				CA8F7DB91D945D8F00C82F4B /* TestGradient.png */,
 				CA8F7DA51D945D1400C82F4B /* AppDelegate.h */,
 				CA8F7DA61D945D1400C82F4B /* AppDelegate.m */,
@@ -144,6 +147,7 @@
 				CA8F7DB21D945D1400C82F4B /* LaunchScreen.storyboard in Resources */,
 				CA8F7DBA1D945D8F00C82F4B /* TestGradient.png in Resources */,
 				CA8F7DAF1D945D1400C82F4B /* Assets.xcassets in Resources */,
+				1CAD388B1D95FE8D0002D3A9 /* IMG_1453.CR2 in Resources */,
 				CA8F7DAD1D945D1400C82F4B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +320,7 @@
 				CA8F7DB81D945D1400C82F4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
